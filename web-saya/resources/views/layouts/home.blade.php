@@ -1,5 +1,5 @@
 @extends('layouts.template')
-
+@section('dashboard', 'active')
 @section ('content')
         <!-- Small boxes (Stat box) -->
 						<!-- start: BASIC EXAMPLE -->
@@ -12,7 +12,7 @@
 											<h2 class="StepTitle">Profil Saya</h2>
 											
 											<p class="links cl-effect-1">
-												<a href="edit-profile.php">
+												<a href="/profil">
 													Update Profile
 												</a>
 											</p>
@@ -26,7 +26,7 @@
 											<h2 class="StepTitle"> Pendafataran Saya</h2>
 										
 											<p class="cl-effect-1">
-												<a href="appointment-history.php">
+												<a href="/cekhasil">
 													Lihat Catatan Pendaftaran Saya
 												</a>
 											</p>
@@ -40,7 +40,7 @@
 											<h2 class="StepTitle"> Menu Pendaftaran</h2>
 											
 											<p class="links cl-effect-1">
-												<a href="book-appointment.php">
+												<a href="/daftar">
 													Daftar
 												</a>
 											</p>

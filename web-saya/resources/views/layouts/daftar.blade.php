@@ -4,95 +4,85 @@
 <div class="container-fluid">
         <div class="row">
           <!-- left column -->
-          <div class="col-md-6">
-            <!-- general form elements -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Form Pendaftaran</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form action="/daftar/insert" method="POST" enctype="multipart/form-data">
+                  @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="exampleInputNama">Nama Lengkap</label>
+                    <input type="text" name="nama_mhs" class="form-control" value="{{ old('nama_mhs') }}" id="exampleInputNama" placeholder="Masukkan nama anda">
+                    <div class="text-danger">
+                        @error('nama_mhs')
+                                  {{ $message }}
+                        @enderror
+                    </div>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">NIM</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="exampleInputNim">NIM</label>
+                    <input type="text" name="nim" class="form-control" value="{{ old('nim') }}" id="exampleInputNim" placeholder="Masukkan NIM anda">
+                    <div class="text-danger">
+                        @error('nim')
+                                  {{ $message }}
+                        @enderror
+                    </div>
                   </div>
-                  <div class="form-group">
+                    <div class="form-group">
                     <label for="exampleInputFile">File KTP</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
+                    <input type="file" name="file_ktp" class="form-control" id="exampleInputFile">
+                    <div class="text-danger">
+                        @error('file_ktp')
+                                  {{ $message }}
+                        @enderror
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">File KK</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
+                    <input type="file" name="file_kk" class="form-control" id="exampleInputFile">
+                    <div class="text-danger">
+                        @error('file_kk')
+                                  {{ $message }}
+                        @enderror
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">File KTM</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
+                    <input type="file" name="file_ktm" class="form-control" id="exampleInputFile">
+                    <div class="text-danger">
+                        @error('file_ktm')
+                                  {{ $message }}
+                        @enderror
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">File Surat Keterangan Desa</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
+                    <label for="exampleInputFile">File SKD</label>
+                    <input type="file" name="file_skd" class="form-control" id="exampleInputFile">
+                    <div class="text-danger">
+                        @error('file_skd')
+                                  {{ $message }}
+                        @enderror
                     </div>
                   </div>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>
-                </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>
             <!-- /.card -->
-            <div class="form-group">
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
           </div>
           <!--/.col (right) -->
         </div>
         <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div>
 @endsection

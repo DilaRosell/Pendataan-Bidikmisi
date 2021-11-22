@@ -19,54 +19,63 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
+                      <th>Nama Lengkap</th>
+                      <th>NIM</th>
+                      <th>File KTP</th>
+                      <th>File KK</th>
+                      <th>File KTM</th>
+                      <th>File SKD</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
+                    <?php $id=1; ?>
+                    @foreach ($cekhasil as $data)
+                      <tr>
+                            <td>{{ $id++ }}</td>
+                            <td>{{ $data->nama_mhs }}</td>
+                            <td>{{ $data->nim }}</td>
+                            <td><img src="{{ url('foto_ktp/'.$data->file_ktp) }}" widht="30px"></td>
+                            <td><img src="{{ url('foto_kk/'.$data->file_kk) }}" widht="30px"></td>
+                            <td><img src="{{ url('foto_ktm/'.$data->file_ktm) }}" widht="30px"></td>
+                            <td><img src="{{ url('foto_skd/'.$data->file_skd) }}" widht="30px"></td>
+                            <td>
+                              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id }}">
+                                Delete
+                              </button>
+                            </td>
+                        </tr>
+                    @endforeach
                   </tbody>
                 </table>
-              </div>
-              <!-- /.card-body -->
+            
+      
+      @foreach ($cekhasil as $data)
+      <div class="modal fade" id="delete{{ $data->id }}">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content bg-danger">
+            <div class="modal-header">
+              <h4 class="modal-title">{{ $data->nama_mhs }}</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <!-- /.card -->
+            <div class="modal-body">
+              <p>Apakah Anda Yakin Ingin menghapus Data Ini?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
+              <a href="/cekhasil/delete/{{ $data->id }}" class="btn btn-outline-light">Yes</button>
+            </div>
           </div>
+          <!-- /.modal-content -->
         </div>
-        <!-- /.row -->
+        <!-- /.modal-dialog -->
       </div>
-      <!-- /.container-fluid -->
+      @endforeach
+
 @endsection

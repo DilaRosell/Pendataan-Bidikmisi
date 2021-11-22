@@ -19,7 +19,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'level',
+        'nim',
+        'prodi',
         'email',
+        'no_hp',
+        'foto',
         'password',
     ];
 
@@ -41,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getPictureAttribute($value){
+        if($value){
+            return asset('users/images/'.$value);
+        } else{
+            return asset('users/images/foto1.jpg');
+        }
+    }
 }

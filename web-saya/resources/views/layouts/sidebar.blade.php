@@ -3,7 +3,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="/" class="nav-link active">
+            <a href="/" class="nav-link @yield('dashboard')">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -11,7 +11,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/timeline" class="nav-link">
+            <a href="/timeline" class="nav-link {{ Request::is('timeline')?'active':'';}} ">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Timeline
@@ -19,7 +19,7 @@
             </a>
               </li>
           <li class="nav-item">
-            <a href="/daftar" class="nav-link">
+            <a href="/daftar" class="nav-link {{ Request::is('daftar')?'active':'';}} ">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Daftar
@@ -27,7 +27,7 @@
             </a>
             </li>
             <li class="nav-item">
-            <a href="/cekhasil" class="nav-link">
+            <a href="/cekhasil" class="nav-link {{ Request::is('cekhasil')?'active':'';}} ">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Cek Hasil

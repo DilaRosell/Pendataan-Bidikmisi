@@ -1,44 +1,27 @@
 <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-           
-      <li class="dropdown current-user">
-								<a href class="dropdown-toggle" data-toggle="dropdown">
-							  <span class="username">
-              
-                <i class="ti-angle-down"></i></i></span>
-								</a>
-								<ul class="dropdown-menu dropdown-dark">
-									<li>
-										<a href="/profil">
-											Profil Saya
-										</a>
-									</li>
-								
-									<li>
-										<a href="/gantips">
-											Ganti Pasword
-										</a>
-									</li>
-									<li>
-										<a href="/logout">
-											Log Out
-										</a>
-									</li>
-								</ul>
-							</li>
-							<!-- end: USER OPTIONS DROPDOWN -->
-						</ul>
-						<!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
-						<div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
-							<div class="arrow-left"></div>
-							<div class="arrow-right"></div>
-						</div>
-      </li>
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <img src="{{ Auth::user()->picture }}" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="{{ Auth::user()->picture }}" class="img-circle" alt="User Image">
+
+                <p>
+                {{ Auth::user()->name }}
+                </p>
+              </li>
+              <!-- Menu Footer-->  
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="/profil" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="{{route('logout')}}" class="btn btn-default btn-flat">Logout</a>
+                </div>
+              </li>
+            </ul>
+          </li>
   </nav>
